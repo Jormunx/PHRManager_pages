@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="fragments/adminModel">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="../css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="../css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+</head>
+<body>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="index_admin.html" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block"><span>PHR个人健康服务管理平台</span></div>
+                        <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>PHR</strong></div></a>
+                        <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                    <!-- Navbar Menu -->
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <!-- Notifications-->
+
+                        <!-- Logout    -->
+                        <li class="nav-item"><a href="../login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="../img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h4">user_name</h1>
+                    <p>really_name</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus-->
+            <ul class="list-unstyled">
+                <li><a href="index_admin.html"> <i class="icon-home"></i>首页 </a></li>
+                <li class="active"><a href="settingUp.html"> <i class="icon-padnote"></i>账号设置 </a></li>
+            </ul>
+        </nav>
+        <div class="content-inner">
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">账号设置</h2>
+                </div>
+            </header>
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-holder container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index_admin.html">首页</a></li>
+                    <li class="breadcrumb-item active">账号设置</li>
+                </ul>
+            </div>
+            <!-- Forms Section-->
+            <section class="forms">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- Basic Form-->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">账户基础信息</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>修改/补充个人基础信息.</p>
+                                    <form  method="post" class="form-validate form-horizontal">
+
+                                        <div class="form-group form-group-lg">
+                                            <label for="username">登陆用户名</label>
+                                            <input name="username" class="form-control" readonly="true" id="username" placeholder="请输入登陆用户名" th:value="${session.LOGIN_USER.user.username}"/>
+                                        </div>
+                                        <div class="form-group form-group-lg">
+                                            <label for="password">原始密码<small>（不修改密码可以不输入）</small></label>
+                                            <input type="password" name="oldPwd" class="form-control" id="password" placeholder="请输入原始密码"/>
+                                        </div>
+                                        <div class="form-group form-group-lg">
+                                            <label for="repwd">登陆密码<small>（不修改密码可以不输入）</small></label>
+                                            <input type="password" name="password" class="form-control" id="repwd" placeholder="请输入登陆密码"/>
+                                        </div>
+                                        <div class="form-group form-group-lg">
+                                            <label for="confirmPassword">重复密码<small>（不修改密码可以不输入）</small></label>
+                                            <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="请再次输入登陆密码"/>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">确定提交</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright &copy; 2019.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p></p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<!-- JavaScript files-->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/popper.js/umd/popper.min.js"> </script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/jquery.cookie/jquery.cookie.js"> </script>
+<script src="../vendor/chart.js/Chart.min.js"></script>
+<script src="../vendor/jquery-validation/jquery.validate.min.js"></script>
+<!-- Main File-->
+<script src="../js/front.js"></script>
+</body>
+</html>
