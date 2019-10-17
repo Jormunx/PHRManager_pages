@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title  -->
-    <title>病历夹</title>
-
+    <title>病历夹-个人病历夹</title>
     <!-- Favicon  -->
     <link rel="icon" href="../img/core-img/favicon.ico">
 
@@ -96,55 +88,94 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="breadcumb-content">
-                    <h3 class="breadcumb-title">病历夹</h3>
+                    <h3 class="breadcumb-title">病历夹-个人病历夹</h3>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- ***** Breadcumb Area End ***** -->
-
-<!-- ***** Blog Area Start ***** -->
-<!-- ***** 病历夹 ***** -->
-<section class="all-icons-area section-padding-100-70">
+<!-- ***** Book An Appoinment Area Start ***** -->
+<!-- ***** 医院医生科室表 Start ***** -->
+<div class="medilife-book-an-appoinment-area">
     <div class="container">
         <div class="row">
-            <!-- Single Cool Fact-->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="medilife-single-icon">
-                    <a href="memorandum.html">
-                    <i class="icon-clinic-history-7"></i>
-                    <h2>备忘录</h2>
-                    </a>
-                </div>
-            </div>
-            <!-- Single Cool Fact-->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="medilife-single-icon">
-                    <a href="MyMedicalRecordFolder.html">
-                    <i class="icon-medicine-book"></i>
-                    <h2>个人病历夹</h2>
-                    </a>
-                </div>
-            </div>
+            <div class="col-12">
 
-            <div class="col-12 col-lg-4">
-                <div class="medilife-blog-sidebar-area">
+                <div class="appointment-form-content">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-12 col-lg-12">
+                            <div class="medilife-appointment-form">
+                                <form action="#" method="post">
+                                    <div class="row align-items-end">
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
-                    <!-- medilife Emergency Card -->
-                    <div class="medilife-emergency-card bg-img bg-overlay" style="background-image: url(../img/bg-img/about1.jpg);">
-                        <i class="icon-smartphone"></i>
-                        <h2>紧急电话</h2>
-                        <h3>+120</h3>
                     </div>
+                </div>
+                <div class="section-padding-0-0">
+                    <div class="col-12 col-lg-12">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">医院</th>
+                                <th scope="col">医生</th>
+                                <th scope="col">时间</th>
+                                <th scope="col">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach items="${oder}" var="o">
+                                <td>医院1</td>
+                                <td>医生编号1</td>
+                                <td>就诊时间1</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#modleEdit" onclick="values(3)">评价</a>
+                                </td>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
-
-
     </div>
-</section>
-<!-- ***** Blog Area End ***** -->
+</div>
+
+<!-- dailog  modleEdit-->
+<div id="modleEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content leave-comment-area clearfix"  style="margin-top: 10ex;" >
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">对本次就诊服务进行评价</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="comment-form">
+                <form action="#" method="post">
+                    <div class="modal-body">
+                        <p>请输入评价</p>
+                            <input type="hidden" class="form-control" name="dateId" id="dateId" value=""  disabled style="color: black;">
+                        <div class="form-group">
+                            <textarea class="form-control" name="new" id="new" cols="30" rows="10" placeholder="评价文本" tabindex="1" style="overflow: hidden;outline: none;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** 医院医生科室表 End ***** -->
+<!-- ***** Book An Appoinment Area End ***** -->
 
 
 
@@ -223,9 +254,13 @@
 <script>
 
 
+    $(function(){
+        $('#modleEdit').modal("hide");
+    });
+    function values(ID){
+        $('#dateId').val(ID);
+    }
+
 </script>
 
 </body>
-
-
-</html>
